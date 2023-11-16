@@ -69,7 +69,7 @@ function putDatos(data) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    getAll()
+    getAll();
 
     document.body.addEventListener("input", validate)
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputId.value = "";
             validate();
         } else {
-            getAll()
+            getAll();
         }
 
     })
@@ -95,10 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btnPut").addEventListener("click", () => {
         let id = document.getElementById("inputPutId").value
-        let nameInput = document.getElementById("inputPutNobre");
+        let nameInput = document.getElementById("inputPutNombre");
         let lastNameInput = document.getElementById("inputPutApellido");
         requestCRUD('GET', { id })
             .then((response) => {
+                console.log(response);
                 if (response) {
                     nameInput.value = response.name;
                     lastNameInput.value = response.lastname;
@@ -110,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             name: nameInput.value,
                             lastname: lastNameInput.value
                         })
-                        dataModal.hide()
+                        dataModal.hide();
                     })
 
                 } else {
